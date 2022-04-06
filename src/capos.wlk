@@ -44,11 +44,11 @@ object rolando {
 
 	method luchar(){
 		poderBase +=1
+		objetosAgarrados.forEach{objeto=>objeto.aumentaUso()}
+		poderTotal = poderBase
+		poderTotal += objetosAgarrados.forEach{objeto=>objeto.poder(poderBase)}
 	}
 	
-	method consultaPoderTotal(){
-		return poderTotal
-	}
 
 }
 
@@ -56,7 +56,7 @@ object rolando {
 
 object espadaDelDestino{
 	var property cantidad = 1
-	var usos = 0
+	var property usos = 0
 	
 	method poder(poderBase){
 		if (usos==0){
@@ -72,7 +72,7 @@ object espadaDelDestino{
 	
 object libroDeHechizos{
 	var property cantidad = 1
-	var usos = 0
+	var property usos = 0
 	
 	method aumentaUso(){
 		usos+=1
@@ -81,7 +81,7 @@ object libroDeHechizos{
 
 object collarDivino{
 	var property cantidad = 1
-	var usos = 0
+	var property usos = 0
 	
 	method poder(poderBase){
 		if (poderBase >6){
@@ -96,7 +96,7 @@ object collarDivino{
 
 object armaduraDeAceroValeryo{
 	var property cantidad = 1
-	var usos=0
+	var property usos=0
 	
 	method poder(poderBase){
 		return 6
